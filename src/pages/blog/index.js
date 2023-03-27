@@ -37,7 +37,7 @@ const Blog = ({ data }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let data = await axios.get("http://localhost:7000/api/blogs").then((res) => {
     return res?.data?.response;
   });
