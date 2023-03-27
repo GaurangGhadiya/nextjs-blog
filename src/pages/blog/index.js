@@ -40,7 +40,9 @@ const Blog = ({ data }) => {
 export async function getServerSideProps() {
   let data = await axios.get("http://localhost:7000/api/blogs").then((res) => {
     return res?.data?.response;
-  });
+  }).catch((err) => {
+    console.log("error: ", err);
+  })
 
   return { props: { data: data } };
 }
