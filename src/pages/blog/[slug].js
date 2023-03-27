@@ -15,7 +15,7 @@ const BlogPost = ({data}) => {
       <main className="main">
         <section className={styles.mt2}>
           <h2 className={`${styles.mt2} text-center `}>{data?.title}</h2>
-          <p className={styles.mt2}>{data?.desc}</p>
+          <div className={styles.mt2} dangerouslySetInnerHTML={{__html: data?.longDesc}} />
         </section>
       </main>
     </>
