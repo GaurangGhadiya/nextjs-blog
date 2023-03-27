@@ -16,14 +16,18 @@ const Blog = ({ data }) => {
       <main className="main">
         <h1 className="text-center">All Blogs</h1>
         <section className={styles.mt2}>
-          {data?.map((v) => {
+          {data?.map((v,i) => {
             return (
-              <div key={v?.slug}>
-                <h3 className={styles.mt2}>{v?.title}</h3>
+              <div key={i}>
+                <h2 className={styles.mt2}>{v?.title}</h2>
                 <p className={styles.elipsis}>{v?.desc}</p>
-                <Link href={`/blog/${v?.slug}`}>
-                  <button className={styles.readMore}>Read more</button>
+                  <p className={styles.readMore}>
+                <Link href={`/blog/${v?.slug}`} >
+                    {/* <a area-label={v?.slug}> */}
+                      Read more about {v?.slug}
+                      {/* </a> */}
                 </Link>
+                    </p>
               </div>
             );
           })}
