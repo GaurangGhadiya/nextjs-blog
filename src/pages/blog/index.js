@@ -4,15 +4,7 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import axios from "axios";
 
-const Blog = () => {
-  const [data, setData] = useState([])
-  useEffect(() => {
-     axios.get("http://localhost:7000/api/blogs").then((res) => {
-      setData(res?.data?.response)
-    });
-  
-  }, [])
-  
+const Blog = ({ data }) => {
   return (
     <>
       <Head>
@@ -45,12 +37,12 @@ const Blog = () => {
   );
 };
 
-// export async function getServerSideProps() {
-//   let data = await axios.get("http://localhost:7000/api/blogs").then((res) => {
-//     return res?.data?.response;
-//   });
+export async function getServerSideProps() {
+  let data = await axios.get("http://localhost:7000/api/blogs").then((res) => {
+    return res?.data?.response;
+  });
 
-//   return { props: { data: data } };
-// }
+  return { props: { data: data } };
+}
 
 export default Blog;
