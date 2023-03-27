@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
     res.status(200).json({response })
   }catch(e){
-    res.status(200).json({response : "sonething went wrong" })
+    res.status(200).json({response : e })
 }  
 
 }
